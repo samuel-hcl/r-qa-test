@@ -2,7 +2,7 @@
 
 describe('contact form', () => {
 
-  it('sends customer message and details with success', () =>{
+  it('shows error message when e-mail is invalid', () =>{
     cy.visit('https://rain.us/contact/')
     cy.get('#firstname').type('John')
     cy.get('#lastname').type('Doe')
@@ -16,7 +16,7 @@ describe('contact form', () => {
 
     cy.get('#main_rain_contact > div > div > p')
       .should('be.visible')
-      .and('contain.text', 'Thanks for submitting the form. A Rain representative will be in touch shortly.')
+      .and('contain.text', 'The e-mail address provided is invalid. Please user another e-mail address.')
   });
 
 });
